@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create a Service Request</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> 
+</head>
+<body>
+    {% include 'representatives/navigation_bar.html' %}
+    <br>
+    <h2>Create Service Request</h2>
+    <form id="service-request-form" method="post" enctype="multipart/form-data">  
+        {% csrf_token %}
+        {{ form.as_p }}  
+        <button type="submit">Submit Request</button>
+    </form>
+    
+    <div id="message" style="display: none;"></div> <!-- Div for displaying messages -->
+
+    <script>
+        $(document).ready(function() {
+            $('#service-request-form').on('submit', function(event) {
+                event.preventDefault(); 
+
+                $.ajax({
+                    type: 'POST',
+                    url: '', 
+                    data: $(this).serialize(), 
+                    success: function(response) {
+                        if (response.success) {
+                            $('#message').text(response.message).css('color', 'green').show(); // Display success message
+                            $('#service-request-form')[0].reset(); // Reset the form fields
+                        } else {
+                        
+                            let errors = '';
+                            $.each(response.errors, function(field, messages) {
+                                errors += field + ': ' + messages.join(', ') + '<br>';
+                            });
+                            $('#message').html(errors).css('color', 'red').show(); 
+                        }
+                    },
+                    error: function() {
+                        $('#message').text('An error occurred. Please try again.').css('color', 'red').show(); // Display error message
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

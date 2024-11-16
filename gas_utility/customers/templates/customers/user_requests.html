@@ -1,0 +1,35 @@
+<!-- templates/customers/user_requests.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Service Requests</title>
+</head>
+<body>
+    {% include 'representatives/navigation_bar.html' %}
+    <br>
+    <h2>My Service Requests</h2>
+
+    {% if user_requests %}
+        <ul>
+            {% for request in user_requests %}
+                <li>
+                    <strong>Subject:</strong> {{ request.request_subject }}<br>
+                    <strong>Description:</strong> {{ request.description }}<br>
+                    <strong>Status:</strong> {{ request.status }}<br>
+                    <strong>Created At:</strong> {{ request.created_at }}<br>
+                    {% if request.resolved_on %}
+                        <strong>Resolved On:</strong> {{ request.resolved_on }}<br>
+                    {% endif %}
+                    <br>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>You have no service requests.</p>
+    {% endif %}
+
+   
+</body>
+</html>

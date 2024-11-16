@@ -1,0 +1,20 @@
+<nav style="background-color: #333; color: white; padding: 10px; display: flex; justify-content: space-between; align-items: center;">
+    <div>
+        <a href="{% url 'home' %}" style="color: white; text-decoration: none; margin-right: 20px;">Home</a>
+        <a href="{% url 'view_pending_requests' %}" style="color: white; text-decoration: none; margin-right: 20px;">Pending Requests</a>
+        <a href="{% url 'user_requests' %}" style="color: white; text-decoration: none; margin-right: 20px;">Your Requests</a>
+        <a href="{% url 'login' %}" style="color: white; text-decoration: none; margin-right: 20px;">Login</a>
+        <a href="{% url 'signup' %}" style="color: white; text-decoration: none;">Signup</a>
+    </div>
+    <div>
+        {% if user.is_authenticated %}
+    <div style="display: inline-block; padding: 10px; border: 2px solid white; border-radius: 5px; background-color: rgba(0, 0, 0, 0.5);">
+        <span style="margin-right: 10px;">You are welcome {{ user.name }}</span>
+        <a href="{% url 'profile' %}" style="color: white; text-decoration: none; margin-right: 10px;">Your Profile</a>
+        <a href="{% url 'logout' %}" style="color: white; text-decoration: none;">Logout</a>
+    </div>
+{% else %}
+    <span style="margin-right: 10px;">You are not logged in</span>
+{% endif %}
+    </div>
+</nav>

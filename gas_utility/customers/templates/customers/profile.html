@@ -1,0 +1,20 @@
+<!-- templates/customers/user_profile.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+</head>
+<body>
+    {% include 'representatives/navigation_bar.html' %}
+    <h2>Pending Service Requests</h2>
+
+    <h2>Your Profile</h2>
+
+    <p><strong>Name:</strong> {{ user.name }}</p>  
+    <p><strong>Email:</strong> {{ user.email }}</p>  
+    <p><strong>Is Representative:</strong> {{ user.is_representative }}</p> 
+    
+</body>
+</html>

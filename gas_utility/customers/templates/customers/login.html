@@ -1,0 +1,22 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+    {% include 'representatives/navigation_bar.html' %}
+    <br>
+    <h2>Log In</h2>
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}  <!-- Renders the fields from your custom authentication form -->
+        <button type="submit">Log In</button>
+    </form>
+</body>
+</html>

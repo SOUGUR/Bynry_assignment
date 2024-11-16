@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="representatives/styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pending Service Requests</title>
+   
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> 
+</head>
+<body>
+    {% include 'representatives/navigation_bar.html' %}
+    <h2>Pending Service Requests</h2>
+
+    {% if pending_requests %}
+        <ul id="pending-requests-list">
+            {% for request in pending_requests %}
+                <li id="request-{{ request.id }}">
+                    <strong>Subject:</strong> {{ request.request_subject }}<br>
+                    <strong>Description:</strong> {{ request.description }}<br>
+                    <strong>Created At:</strong> {{ request.created_at }}<br>
+                    <button onclick="resolveRequest({{ request.id }})">Mark as Resolved</button>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No pending requests at this time.</p>
+    {% endif %}
+
+    <a href="{% url 'home' %}">Back to Home</a>
+
+    <script>
+        function resolveRequest(requestId) {
+            $.ajax({
+                url: "{% url 'resolve_request' 0 %}".replace("0", requestId), // Dynamic URL
+                method: "POST",
+                data: {
+                    csrfmiddlewaretoken: "{{ csrf_token }}", // CSRF token for security
+                },
+                success: function(response) {
+                    // Change the button text to "Resolved" and disable it
+                    const button = $("#request-" + requestId + " button");
+                    button.text("Resolved");
+                    button.prop("disabled", true); // Disable the button to prevent further clicks
+                },
+                error: function(xhr, status, error) {
+                    alert("Failed to resolve the request: " + error);
+                }
+            });
+        }
+    </script>
+</body>
+</html>
