@@ -27,7 +27,7 @@ A web-based application for managing and resolving service requests. This projec
 1. **Clone the Repository**  
 
    git clone https://github.com/SOUGUR/Bynry_assignment.git
-   cd <repository-folder>
+
 
 
 2. **Set Up Virtual Environment**  
