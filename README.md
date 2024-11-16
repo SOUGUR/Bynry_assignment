@@ -106,7 +106,7 @@ The URLs for resolving requests are dynamically generated, ensuring accuracy and
 
 
 ## File Structure
-
+``````
 gas_utility/
 ├── representatives/
 │   ├── migrations/
@@ -153,7 +153,7 @@ gas_utility/
     ├── urls.py
     └── wsgi.py
                     
-
+```````
 
 
 ## License
