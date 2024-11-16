@@ -173,4 +173,5 @@ For any inquiries or support, please contact:
 2. Update contact details, repository folder name, and GitHub profile link to reflect your project and identity.
 3. Ensure the `requirements.txt` file lists all dependencies. You can generate it with:
    pip freeze > requirements.txt
+![image](https://github.com/user-attachments/assets/a7b06833-4ad0-4caf-a1a7-8946390bcfc6)
 
