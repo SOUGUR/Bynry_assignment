@@ -173,5 +173,25 @@ For any inquiries or support, please contact:
 2. Update contact details, repository folder name, and GitHub profile link to reflect your project and identity.
 3. Ensure the `requirements.txt` file lists all dependencies. You can generate it with:
    pip freeze > requirements.txt
+
+Sign Up
 ![image](https://github.com/user-attachments/assets/a7b06833-4ad0-4caf-a1a7-8946390bcfc6)
+
+Login 
+![image](https://github.com/user-attachments/assets/cc6b8b27-c68b-421e-b114-d0f1f3943a42)
+
+Pending Requests for Representatives
+![image](https://github.com/user-attachments/assets/0b93e99c-982b-49b1-89e5-68f4f8cc8bfe)
+
+User Profile
+![image](https://github.com/user-attachments/assets/fa5ca58a-4af2-46ec-8a9a-a4a4e52440fc)
+
+Create a Request
+![image](https://github.com/user-attachments/assets/040d4922-24e5-4836-affb-fcabab8eebb3)
+
+Request History of a user
+![image](https://github.com/user-attachments/assets/dda78943-1e29-4527-a815-fc365d9add48)
+
+
+
 
